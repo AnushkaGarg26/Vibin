@@ -25,7 +25,8 @@ width, height = 48, 48
 
 datapoints = data['pixels'].tolist()
 
-#getting features for training
+"""getting features for training"""
+
 X = []
 for xseq in datapoints:
     xx = [int(xp) for xp in xseq.split(' ')]
@@ -35,10 +36,12 @@ for xseq in datapoints:
 X = np.asarray(X)
 X = np.expand_dims(X, -1)
 
-#getting labels for training
+"""getting labels for training"""
+
 y = pd.get_dummies(data['emotion']).values
 
-#storing them using numpy
+"""storing them using numpy"""
+
 np.save('fdataX', X)
 np.save('flabels', y)
 
